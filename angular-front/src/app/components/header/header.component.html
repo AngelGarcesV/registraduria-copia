@@ -1,0 +1,9 @@
+<form class="header">
+  <img src="./assets/image.png" class="brandIco" />
+  <a class="textHeader" [routerLink]="['/home']">Inicio</a>
+  <a class="textHeader">Nosotros</a>
+  <a *ngIf="isActiveOrLogged()" class="textHeader" (click)="submitClose()">Cerrar sesion</a>
+  <a *ngIf="!isActiveOrLogged()" class="textHeader" (click)="submitLogin()"
+    >Iniciar sesion</a
+  >
+</form>

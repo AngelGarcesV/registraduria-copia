@@ -1,0 +1,35 @@
+<div>
+  <div class="tittle-home">Resultados</div>
+  <a
+    [routerLink]="['/resultados/candidato']"
+    [queryParams]="{ type: 'candidato' }"
+  >
+    <!-- para usar los queryParams se debe 
+  determinar un tipo y darle un nombre 
+  que se usara posteriormente para llamarlo 
+  en el typescript -->
+    <mat-card class="example-card" id="first-card">
+      <img class="image-card" src="./assets/icoUsers.png" />
+      <mat-card-content class="color-card"> Candidatos</mat-card-content>
+    </mat-card>
+  </a>
+  <a [routerLink]="['/resultados/mesas']" [queryParams]="{ type: 'mesas' }">
+    <mat-card class="example-card">
+      <img class="image-card" src="./assets/results.png" />
+      <mat-card-content class="color-card"> Mesas</mat-card-content>
+    </mat-card>
+  </a>
+  <a [routerLink]="['/resultados/partido']" [queryParams]="{ type: 'partido' }">
+    <mat-card class="example-card">
+      <img class="image-card" src="./assets/groups.png" />
+      <mat-card-content class="color-card"> Partidos</mat-card-content>
+    </mat-card>
+  </a>
+
+  <a [routerLink]="['/resultados/congreso']" [queryParams]="{ type: 'congreso' }">
+    <mat-card class="example-card">
+      <img class="image-card" src="./assets/partido.png" />
+      <mat-card-content class="color-card"> Nuevo Congreso</mat-card-content>
+    </mat-card>
+  </a>
+</div>

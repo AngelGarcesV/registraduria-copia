@@ -1,0 +1,52 @@
+<mat-spinner class="loading" *ngIf="loading"></mat-spinner>
+<div class="block-form" *ngIf="loading"></div>
+<h1 class="tittle-home">{{ text }}</h1>
+
+<table
+  mat-table
+  [dataSource]="dataSource"
+  matSort
+  (matSortChange)="announceSortChange($event)"
+>
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Nombre</th>
+    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="partido">
+    <th mat-header-cell *matHeaderCellDef>Partido</th>
+    <td mat-cell *matCellDef="let element">{{ element.partido }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="acciones">
+    <th mat-header-cell *matHeaderCellDef>Editar resultados</th>
+    <td mat-cell *matCellDef="let element">
+      <a (click)="activateCandidate(element.id)">
+        <mat-icon style="font: bold">edit</mat-icon>
+      </a>
+      <input
+        *ngIf="activo"
+        type="text"
+        class="form__field"
+        [(ngModel)]="element.vote"
+      />
+      <a (click)="sendVotes(element.id, element.vote)">
+        <mat-icon style="color: green; font: bold" *ngIf="activo"
+          >done_outline</mat-icon
+        >
+      </a>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+<mat-paginator
+  class="paginator"
+  [pageSizeOptions]="[7, 50, 100]"
+  showFirstLastButtons
+>
+</mat-paginator>
+
+<!-- <app-dynamic-table [displayedColumns]="displayedColumns" [columnas]="columnas">
+</app-dynamic-table> -->

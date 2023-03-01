@@ -1,0 +1,2 @@
+ng generate component {carpeta/:nombreComponente}
+ng generate service {carpeta/:nombreServicio}

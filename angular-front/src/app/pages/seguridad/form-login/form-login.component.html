@@ -1,0 +1,42 @@
+<div>
+  <div class="logo-contenedor">
+    <img class="logo" src="./assets/image.png" />
+  </div>
+  <div>
+    <mat-spinner class="loading" *ngIf="loading"></mat-spinner>
+    <div class="block-form" *ngIf="loading"></div>
+    <form class="login-form" (ngSubmit)="submitLogin()" #formLogin="ngForm">
+      <div class="brand">Iniciar sesión</div>
+      <div class="error-texto" *ngIf="err">
+        Error al iniciar sesion, compruebe la contraseña e intente nuevamente
+      </div>
+      <input
+        class="positionMail"
+        name="email"
+        type="text"
+        [(ngModel)]="form.email"
+        placeholder="Ingresa tu email"
+      />
+      <input
+        class="positionPass"
+        name="password"
+        type="password"
+        [(ngModel)]="form.password"
+        required
+        placeholder="Contraseña"
+      />
+      <button type="submit" class="botonEnviar">Iniciar sesion</button>
+
+    </form>
+  </div>
+
+  <div class="footer">
+    <p class="tittle-footer">Integrantes</p>
+    <div class="names-footer">Esteban Villada</div>
+    <div class="names-footer">Gregson Murcia</div>
+    <div class="names-footer">Camilo Ardila</div>
+    <div class="names-footer">Angel Garces</div>
+    <div class="names-footer">Ariel Diaz</div>
+    <div class="names-footer">Haner Ahumada</div>
+  </div>
+</div>

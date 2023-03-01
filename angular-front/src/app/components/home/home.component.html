@@ -1,0 +1,65 @@
+<div>
+  <div *ngIf="this.access === 1">
+    <!-- Con el ngIf se puede determinar 
+  a que tiene acceso el tipo de usuario
+  hará falta crear una logica en el futuro para obtener el acceso de cada usuario -->
+    <div class="tittle-home">Gestion Administrativa</div>
+    <a [routerLink]="['/admin']" [queryParams]="{ title: 'usuarios' }">
+      <mat-card class="example-card" id="first-card">
+        <img class="image-card" src="./assets/icoUsers.png" />
+        <mat-card-content class="color-card">
+          Administracion de usuarios</mat-card-content
+        >
+      </mat-card>
+    </a>
+    <mat-card class="example-card">
+      <img class="image-card" src="./assets/permissions.png" />
+      <mat-card-content class="color-card">
+        Administración de permiso</mat-card-content
+      >
+    </mat-card>
+
+    <mat-card class="example-card">
+      <img class="image-card" src="./assets/groups.png" />
+      <mat-card-content class="color-card">
+        Administración de las mesas</mat-card-content
+      >
+    </mat-card>
+    <mat-card class="example-card">
+      <img class="image-card" src="./assets/partido.png" />
+      <mat-card-content class="color-card">
+        Administración de partidos</mat-card-content
+      >
+    </mat-card>
+    <a [routerLink]="['/candidatos']">
+      <mat-card class="example-card">
+        <img class="image-card" src="./assets/permissions.png" />
+        <mat-card-content class="color-card">
+          Administración de candidatos</mat-card-content
+        >
+      </mat-card>
+    </a>
+  </div>
+  <div>
+    <div class="tittle-home">Resultados publicos</div>
+    <div>
+      <a [routerLink]="['/jurado']" *ngIf="this.access != 0">
+        <mat-card id="first-card" class="example-card">
+          <img class="image-card" src="./assets/results.png" />
+          <mat-card-content class="color-card">
+            Administración de resultados</mat-card-content
+          >
+        </mat-card>
+      </a>
+      <!-- Esta etiqueta de a , debe ser la que siempre se muestra independientemente del tipo de usuario-->
+      <a [routerLink]="['/resultados']">
+        <mat-card class="example-card">
+          <img class="image-card" src="./assets/Statistics.png" />
+          <mat-card-content class="color-card">
+            Visualizacion de resultados</mat-card-content
+          >
+        </mat-card>
+      </a>
+    </div>
+  </div>
+</div>

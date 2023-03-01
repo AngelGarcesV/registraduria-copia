@@ -1,0 +1,29 @@
+<div class="block-form" *ngIf="loading"></div>
+<h1 class="tittle-home">{{ text }}</h1>
+
+<table mat-table matSort>
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Nombre</th>
+    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="partido">
+    <th mat-header-cell *matHeaderCellDef>Partido</th>
+    <td mat-cell *matCellDef="let element">{{ element.partido }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="acciones">
+    <th mat-header-cell *matHeaderCellDef>Editar resultados</th>
+    <td mat-cell *matCellDef="let element">
+      <a (click)="activateCandidate(element.id)"> </a>
+      <input *ngIf="activo" type="text" class="form__field" />
+      <a (click)="sendVotes(element.id, element.vote)"> </a>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+
+<!-- <app-dynamic-table [displayedColumns]="displayedColumns" [columnas]="columnas">
+</app-dynamic-table> -->

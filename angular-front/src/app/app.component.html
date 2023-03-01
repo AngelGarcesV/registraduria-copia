@@ -1,0 +1,29 @@
+<!-- *ngIf se encarga de comprobar si se esta logueado o no -->
+<section *ngIf="logged">
+  <app-header
+    (setLogged)="loggedUser($event)"
+    [logged]="this.logged"
+  ></app-header>
+  <!-- luego de comprobarlo muestra en el header sí no esta logueado `iniciar sesion`
+y si sí `cerrar sesion`, intercalando en la logica-->
+  <router-outlet>    
+  </router-outlet>
+</section>
+
+<section *ngIf="!logged">
+  <!-- Sí no esta logueado solo motrará iniciar sesion, con su logica correspondiente-->
+  <section *ngIf="!formLog; else form_Login">
+    <!-- Muestra el header si NO esta en la pantalla del formulario de ingreso-->
+    <app-header
+      [logged]="this.logged"
+      (setLogged)="loggedUser($event)"
+      (formLog)="formLogged($event)"
+    ></app-header>
+    <router-outlet>
+    </router-outlet>
+  </section>
+  <ng-template #form_Login>
+    <!-- Oculta el header si esta en la pantalla del formulario de ingreso-->
+    <router-outlet> </router-outlet>
+  </ng-template>
+</section>

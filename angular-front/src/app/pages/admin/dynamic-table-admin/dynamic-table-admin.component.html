@@ -1,0 +1,17 @@
+<h1>Lista de {{ this.title }}</h1>
+<!-- <button *ngIf="this.title == 'roles'"></button> -->
+<button>Crear {{ this.title }}</button>
+<app-dynamic-table
+  text="{{ this.title }}"
+  [displayedColumns]="displayedColumns"
+  [columnas]="columnas"
+>
+  <!--
+  En este componente se determina el nombre de las columnas que se van a mostrar
+  es importante tenerlo en cuenta, pues se pasa de un componente a otro un dato
+  haciendo uso de
+  [displayedColumns]="displayedColumns"
+  &&
+  [columnas]="columnas"
+-->
+</app-dynamic-table>

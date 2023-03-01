@@ -1,0 +1,39 @@
+.example-card {
+    display: inline-block;
+    min-width: 15.52%;
+    max-width: 15.52%;
+    max-height: 27%;
+    min-height: 27%;
+    width: 15.52%;
+    height: 27%;
+    margin: 2% 1% 2% 1%;
+    border: 1px solid #003057;   
+    padding : 0px; 
+    align-items: center;
+  }
+.color-card{
+    background-color: #003057;
+    color: #fff;
+    font-weight: bold;
+    padding: 12px;
+    text-align: center;
+    
+}
+.image-card{   
+    position: relative;
+    max-height: 100px ;  
+    padding-top: 9%;
+    padding-bottom: 9%;    
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+.tittle-home{
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #003057;
+    margin: 1% 3%;
+}
+#first-card{
+    margin-left: 2%;
+}
