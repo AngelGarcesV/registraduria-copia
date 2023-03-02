@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c687b61f-b2d3-43dd-b122-ed806d2f47eb" name="Changes" comment="respuestas actualizadas">
-      <change beforePath="$PROJECT_DIR$/flask-back/.idea/MinTicProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/flask-back/.idea/MinTicProject.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-back/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/flask-back/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-back/Routes/CandidateRoutes.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-back/Routes/CandidateRoutes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-back/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/flask-back/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +34,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/angel/Documents/Mintic/registraduriaMinTIC/Gateway",
+    "last_opened_file_path": "/home/angel/Documents/pruebas/registraduriaMinTIC",
     "node.js.selected.package.tslint": "(autodetect)",
     "vue.rearranger.settings.migration": "true"
   }
@@ -175,6 +172,7 @@
       <workItem from="1662933231668" duration="239000" />
       <workItem from="1662936517977" duration="377000" />
       <workItem from="1677709310452" duration="39000" />
+      <workItem from="1677713379949" duration="174000" />
     </task>
     <task id="LOCAL-00001" summary="respuestas actualizadas">
       <created>1662650448838</created>
