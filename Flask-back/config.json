@@ -1,4 +1,7 @@
 {
 "url-backend": "127.0.0.1",
-"port": 5000
+"port": 5000,
+
+  "data-db-connection": "mongodb+srv://Angel:Angel0409@cluster0.aqqjyyu.mongodb.net/RegistraduriaMintic?retryWrites=true&w=majority",
+  "name-db": "RegistraduriaMintic"
 }

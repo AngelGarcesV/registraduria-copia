@@ -1,17 +1,17 @@
 from models.Candidate import Candidate
 dict = [
-            {"id":123,
-             "name": "angel",
-             "party": "supaisabra"
-             },
-            {"id":12,
-             "name": "angel",
-             "party": "supaisabra"
-             },
-            {"id":124,
-             "name": "angel",
-             "party": "supaisabra"
-             },
+                {"id":123,
+                 "name": "angel",
+                 "party": "supaisabra"
+                 },
+                {"id":12,
+                 "name": "angel",
+                 "party": "supaisabra"
+                 },
+                {"id":124,
+                 "name": "angel",
+                 "party": "supaisabra"
+                 },
         ]
 class candidateControler():
     def __init__(self):

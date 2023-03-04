@@ -1,3 +1,3 @@
-from models.abstractModel import abstractModel
-class party(abstractModel):
+from models.abstractModel import AbstractModelo
+class party(AbstractModelo):
     pass

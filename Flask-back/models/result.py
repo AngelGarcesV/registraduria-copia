@@ -1,3 +1,3 @@
-from models.abstractModel import abstractModel
-class result(abstractModel):
+from models.abstractModel import AbstractModelo
+class result(AbstractModelo):
     pass
