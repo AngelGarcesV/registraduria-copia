@@ -1,55 +1,35 @@
+from Repositories.repositorioCandidate import repositorioCandidate
 from models.Candidate import Candidate
-dict = [
-                {"id":123,
-                 "name": "angel",
-                 "party": "supaisabra"
-                 },
-                {"id":12,
-                 "name": "angel",
-                 "party": "supaisabra"
-                 },
-                {"id":124,
-                 "name": "angel",
-                 "party": "supaisabra"
-                 },
-        ]
+
 class candidateControler():
     def __init__(self):
-        print("creando el controlador xd")
+        self.repositorioCandidate = repositorioCandidate()
 
     def index(self):
-        print("acá se imprimiran los estudiantes")
-
-        return dict
+        print("Get all candidates")
+        return self.repositorioCandidate.getAll()
 
     def create(self, infoCandidate):
-        print("Crear un candidato")
-        elCandidato = Candidate(infoCandidate)
-        dict.append(elCandidato.__dict__)
-        print(dict)
-        return dict
-
+        try:
+            print("Create a candidate")
+            if infoCandidate['name'] and infoCandidate['lastName'] and infoCandidate['partyId'] and infoCandidate['partyId']:
+                elCandidato = Candidate(infoCandidate)
+                print(elCandidato.__dict__)
+                response = self.repositorioCandidate.save(elCandidato)
+                return response
+        except:
+            return {"message": "los atributos enviados no corresponden a un candidato"}
 
     def show(self,id):
         print("mostrando candidato con id:",id)
-        for cand in dict:
-            print(cand['id'])
-            if cand['id'] == int(id):
-                print("True")
-                return cand
-            else:
-                pass
+        return  self.repositorioCandidate.getById(id)
+
 
     def update(self,_id,infoCandidate):
-        cont = 0
-        for cand in dict:
-            if cand['id'] ==int(_id):
-                dict.pop(cont)
-                print(infoCandidate)
-                candi = Candidate(infoCandidate)
-                dict.append(candi.__dict__)
-                return dict
-            else:
-                cont*=1
-                pass
-        return {"message":False}
+        print("Update a candidate")
+        if infoCandidate['name'] and infoCandidate['lastName'] and infoCandidate['partyId'] and infoCandidate['partyId']:
+            return self.repositorioCandidate.update(_id,Candidate(infoCandidate))
+
+    def delete(self,_id):
+        print("Delete a candidate")
+        return self.repositorioCandidate.delete(_id)

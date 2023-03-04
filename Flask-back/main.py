@@ -26,7 +26,7 @@ table = tableControler()
 #-----------Candidate Roots-----------#
 #Get all the candidates
 @app.route("/candidate",methods=['GET'])
-def hola():
+def getAll():
     json = candi.index()
     return json
 #Get candidate by Id
@@ -39,18 +39,24 @@ def getById(id):
 @app.route("/candidate",methods=['POST'])
 def crearCandidato():
     data = request.get_json()
-    json=candi.create(data)
+    json = candi.create(data)
     return jsonify(json)
 #edit a Candidate
 @app.route("/candidate/<string:id>",methods=['PUT'])
 def editarCandidato(id):
+    print(id)
     data = request.get_json()
-    print(type(id))
-    print(data)
+
     json=candi.update(id,data)
     return jsonify(json)
 
     return {"status": False}
+
+#Delete a Candidate
+@app.route("/candidate/<string:id>",methods=['DELETE'])
+def deleteCandidate(id):
+    json = candi.delete(id)
+    return jsonify(json)
 
 #-----------Party Roots-----------#
 @app.route("/party",methods=['GET'])

@@ -12,7 +12,7 @@ class interfaceRepositorio(Generic[T]):
         client = pymongo.MongoClient(dataconfig["data-db-connection"],tlsCAFile=ca)
         self.db = client[dataconfig["name-db"]]
         theClass = get_args(self.__orig_bases__[0])
-        collection = theClass[0].__name__.lower()
+        self.collection = theClass[0].__name__
 
     def loadConfig(self):
         with open('config.json') as f:
@@ -20,4 +20,65 @@ class interfaceRepositorio(Generic[T]):
         return data
 
     def save(self, item: T):
-        self.db.list_collection_names()
+        dict = [{
+            "status":True,
+            "code: ":202,
+            "message": "El candidato ha sido creado"
+        }]
+        print("def save")
+        collection=self.db[self.collection]
+        inserted = collection.insert_one(item.__dict__)
+        id = inserted.inserted_id.__str__()
+        print(id)
+        response = collection.find_one({"_id":ObjectId(id)})
+        response['_id'] = str(response['_id'])
+        dict.append(response)
+        return dict
+
+    def getAll(self):
+        dict = [{
+            "status": True,
+            "code": 202,
+        }]
+        Candidates = []
+        collection = self.db[self.collection]
+        response = collection.find()
+        for i in response:
+            i['_id'] =str(i['_id'])
+            Candidates.append(i)
+        dict.append(Candidates)
+        return dict
+
+    def getById(self,id):
+        dict = [{
+            "status": True,
+            "code": 202
+        }]
+        collection = self.db[self.collection]
+        response = collection.find_one({"_id":ObjectId(id)})
+        response['_id'] = str(response['_id'])
+        dict.append(response)
+        return dict
+    def update(self,id , item:T):
+        dict = [{
+            "status": True,
+            "code":202
+        }]
+        collection = self.db[self.collection]
+        item = item.__dict__
+        print(id)
+        collection.update_one({"_id":ObjectId(id)},{"$set":item})
+        response = collection.find_one({"_id": ObjectId(id)})
+        response['_id'] = str(response['_id'])
+        dict.append(response)
+        return dict
+
+    def delete(self,id):
+        dict = [{
+            "status": True,
+            "code": 202
+        }]
+        collection = self.db[self.collection]
+        delCandidate = collection.delete_one({'_id':ObjectId(id)}).deleted_count
+        dict.append({"deleted_count":delCandidate})
+        return dict
