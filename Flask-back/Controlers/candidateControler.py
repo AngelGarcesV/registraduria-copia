@@ -12,16 +12,15 @@ class candidateControler():
     def create(self, infoCandidate):
         try:
             print("Create a candidate")
-            if infoCandidate['name'] and infoCandidate['lastName'] and infoCandidate['partyId'] and infoCandidate['partyId']:
+            if infoCandidate['name'] and infoCandidate['lastName'] and infoCandidate['partyId'] and infoCandidate['resolutionNumber']:
                 elCandidato = Candidate(infoCandidate)
-                print(elCandidato.__dict__)
                 response = self.repositorioCandidate.save(elCandidato)
                 return response
         except:
             return {"message": "los atributos enviados no corresponden a un candidato"}
 
     def show(self,id):
-        print("mostrando candidato con id:",id)
+        print("Showing Candidate with id: ",id)
         return  self.repositorioCandidate.getById(id)
 
 

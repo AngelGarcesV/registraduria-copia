@@ -348,7 +348,7 @@ def creaateParty():
 @app.route("/getallparty", methods=['GET'])
 def getAllParty():
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-result"] + "/getallparty"
+    url = dataConfig["url-backend-result"] + "/party"
     response = requests.get(url, headers=headers)
     json = response.json()
     return jsonify(json)
@@ -357,7 +357,7 @@ def getAllParty():
 @app.route("/getResult", methods=['GET'])
 def getResult():
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-result"] + '/getallresult'
+    url = dataConfig["url-backend-result"] + '/result'
 
     response = requests.get(url, headers=headers)
     json = response.json()
@@ -475,7 +475,7 @@ def updatecandidate():
 @app.route("/getallcandidate", methods=["GET"])
 def getallcandidate():
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-result"] + '/getallcandidate'
+    url = dataConfig["url-backend-result"] + '/Candidate'
     response = requests.get(url, headers=headers)
     json = response.json()
     return jsonify(json)
@@ -530,7 +530,7 @@ def creaateMesa():
 @app.route("/getalltable", methods=['GET'])
 def getAllMesa():
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-result"] + "/getalltable"
+    url = dataConfig["url-backend-result"] + "/table"
     response = requests.get(url, headers=headers)
     json = response.json()
     return jsonify(json)

@@ -60,18 +60,27 @@ class interfaceRepositorio(Generic[T]):
         dict.append(response)
         return dict
     def update(self,id , item:T):
-        dict = [{
-            "status": True,
-            "code":202
-        }]
-        collection = self.db[self.collection]
-        item = item.__dict__
-        print(id)
-        collection.update_one({"_id":ObjectId(id)},{"$set":item})
-        response = collection.find_one({"_id": ObjectId(id)})
-        response['_id'] = str(response['_id'])
-        dict.append(response)
-        return dict
+        try:
+            dict = [{
+                "status": True,
+                "code":202
+            }]
+            collection = self.db[self.collection]
+            item = item.__dict__
+            print(id)
+            collection.update_one({"_id":ObjectId(id)},{"$set":item})
+            response = collection.find_one({"_id": ObjectId(id)})
+            response['_id'] = str(response['_id'])
+            dict.append(response)
+            return dict
+        except:
+            dict = [{
+                "status": False,
+                "code": 403,
+                "message": "El candidato con id "+id+" no ha sido encontrado"
+            }]
+            return dict
+
 
     def delete(self,id):
         dict = [{
